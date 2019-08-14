@@ -7,10 +7,10 @@ Tools version needed to install.
 ```
 ## Hashicorp 
 
-* [Terraform](https://releases.hashicorp.com/terraform/) - Releasesd
+* [Terraform](https://releases.hashicorp.com/terraform/) - Releases
 
 
-##Below are the high level instruction
+## Below are the high level instruction
 ```
 	1.) Installed terraform version 
 	2.) Git to clone from github
