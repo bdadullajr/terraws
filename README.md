@@ -10,16 +10,11 @@ Tools version needed to install.
 * [Terraform](https://releases.hashicorp.com/terraform/) - Releasesd
 
 
-Below are the high level instruction
+##Below are the high level instruction
 ```
-	*Installed terraform version - [Source](https://releases.hashicorp.com/terraform/) - Available version
-	*Git to clone from github
-	*AWS Account with enough privileges to perform provisioning
-		- Access key ID
-		- Secret access key
+	1.) Installed terraform version 
+	2.) Git to clone from github
+	3.) AWS Account with enough privileges to perform provisioning
 ```
 
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
 
