@@ -30,9 +30,8 @@ Tools version needed to install.
 
  export PATH=$PATH:/terraform-path/
 
--- Verify installation running "terraform version"
+--- Verify installation running "terraform version"
 
-```
 Terraform v0.11.13
 
 Your version of Terraform is out of date! The latest version
