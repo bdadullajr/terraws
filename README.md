@@ -264,4 +264,12 @@ Destroy complete! Resources: 14 destroyed.
 
 
 
+# Captured evidence 
 
+
+* [Terminal](https://daduber-storage.s3-ap-southeast-1.amazonaws.com/GIFs/terraform_provisioning.gif)
+* [AWS Console](https://daduber-storage.s3-ap-southeast-1.amazonaws.com/GIFs/aws_console.gif)
+
+
+
+``` 
