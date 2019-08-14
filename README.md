@@ -14,7 +14,7 @@ Tools version needed to install.
 ```
 	1.) Install terraform in environment 
 	2.) Perform clone from github 
-	3.) Create/Use AWS Account with enough privileges to perform provisioning
+	3.) AWS IAM credential should be created 
 ```
 
 ### Steps 1
@@ -62,6 +62,30 @@ drwxr-xr-x  3 root root 4096 Aug 14 11:37 .
 [root@jenkins terraws]# 
  
 ```
+### Steps 2
+```
+--- AWS Users information
+
+[root@jenkins terraws]# aws iam get-user
+{
+    "User": {
+        "UserName": "terraform", 
+        "Tags": [
+            {
+                "Value": "flaconi_provisioning", 
+                "Key": "terraform"
+            }
+        ], 
+        "CreateDate": "2019-08-10T16:26:59Z", 
+        "UserId": "user-id-goes-here", 
+        "Path": "/", 
+        "Arn": "arn:aws:iam::1234567890:user/terraform"
+    }
+}
+[root@jenkins terraws]# 
+
+```
+
 
 
 
