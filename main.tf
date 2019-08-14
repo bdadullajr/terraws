@@ -155,6 +155,17 @@ resource "aws_launch_configuration" "iac_asg_launchconfig" {
   instance_type   = "t2.micro"
   key_name        = "${aws_key_pair.web-ec2-key.key_name}"
   security_groups = ["${aws_security_group.iac_allow_ssh.id}"]
+ user_data = <<EOF
+#!/bin/bash
+sudo yum install httpd -y
+sudo cd /var/www/html
+sudo echo "Hello World" > index.html
+sudo chkconfig httpd on
+sudo service httpd start
+EOF
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 
 resource "aws_autoscaling_group" "iac_asg_autoscaling" {
