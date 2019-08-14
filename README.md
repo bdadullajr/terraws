@@ -24,7 +24,7 @@ Tools version needed to install.
  unzip terraform_0.11.13_linux_386.zip
  mv terraform /usr/local/bin/
 
-### Now add the following line to add terraform in PATH location
+*Now add the following line to add terraform in PATH location
 
  export PATH=$PATH:/terraform-path/
 
