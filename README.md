@@ -19,23 +19,24 @@ Tools version needed to install.
 
 ### Steps 1
 ```
+--- Download and Install
+
  cd /usr/local/src
  wget https://releases.hashicorp.com/terraform/0.11.13/terraform_0.11.13_linux_386.zip
  unzip terraform_0.11.13_linux_386.zip
  mv terraform /usr/local/bin/
 
-*Now add the following line to add terraform in PATH location
+--- Setup Path
 
  export PATH=$PATH:/terraform-path/
 
-### Verify installation running "terraform version"
+-- Verify installation running "terraform version"
 
 ```
 Terraform v0.11.13
 
 Your version of Terraform is out of date! The latest version
 is 0.12.6. You can update by downloading from www.terraform.io/downloads.html
-```
   
 ```
 
