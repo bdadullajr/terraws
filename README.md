@@ -5,6 +5,10 @@ Tools version needed to install.
 - Terraform v0.11.13
 - git version 2.14.5 
 ```
+## Hashicorp 
+
+* [Terraform](https://releases.hashicorp.com/terraform/) - Releasesd
+
 
 Below are the high level instruction
 ```
