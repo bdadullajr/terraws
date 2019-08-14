@@ -15,8 +15,10 @@ Tools version needed to install.
 	1.) Install terraform in environment 
 	2.) Perform clone from github 
 	3.) AWS IAM credential should be created 
+	4.) Terraform + AWS Provisioning "How to"
 ```
 
+## Technical guidelines 
 ### Steps 1
 ```
 --- Download and Install
@@ -62,7 +64,7 @@ drwxr-xr-x  3 root root 4096 Aug 14 11:37 .
 [root@jenkins terraws]# 
  
 ```
-### Steps 2
+### Steps 3
 ```
 --- AWS Users information
 
