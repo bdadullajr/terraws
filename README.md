@@ -16,6 +16,7 @@ Tools version needed to install.
 	2.) Perform clone from github 
 	3.) AWS IAM credential should be created 
 	4.) Terraform + AWS Provisioning "How to"
+	5.) Terraform destroy to avoid unwanted charges :)
 ```
 
 ## Technical Steps guidelines 
@@ -189,6 +190,76 @@ Public Subnet ID = subnet-0d046248383d2bc87
 VPC ID = vpc-0e7a1080fc806cd90
 elb_dns_name = iac-asg-sample-1190618414.eu-west-1.elb.amazonaws.com
 [root@jenkins terraws]# 
+
+```
+### Step 5
+
+```
+--- Make sure to destroy resourceccby running "terraform destroy -auto-approve" to avoid unwanted charges
+
+[root@jenkins terraws]# terraform destroy -auto-approve
+aws_vpc.iac_vpc: Refreshing state... (ID: vpc-0e7a1080fc806cd90)
+aws_security_group.iac_elb: Refreshing state... (ID: sg-04a1154457ce8d44c)
+aws_key_pair.web-ec2-key: Refreshing state... (ID: web-key)
+aws_eip.ngw_elastic_ip: Refreshing state... (ID: eipalloc-0d61e1fe841f8a5e4)
+data.aws_availability_zones.all: Refreshing state...
+aws_elb.iac-elb: Refreshing state... (ID: iac-asg-sample)
+aws_subnet.iac_private_subnet: Refreshing state... (ID: subnet-08de89b311bc84770)
+aws_internet_gateway.iac_gw: Refreshing state... (ID: igw-0e1e103d6ccc4c19f)
+aws_subnet.iac_public_subnet: Refreshing state... (ID: subnet-0d046248383d2bc87)
+aws_security_group.iac_allow_ssh: Refreshing state... (ID: sg-0e2be91d8a4e9a951)
+aws_nat_gateway.iac_nat_gateway: Refreshing state... (ID: nat-0e0ca9887795d5f05)
+aws_route_table.iac_public_rt: Refreshing state... (ID: rtb-0af1a3d23b73c5b16)
+aws_launch_configuration.iac_asg_launchconfig: Refreshing state... (ID: iac_asg_launchconfig20190814125131236200000001)
+aws_route_table_association.iac_public_assoc: Refreshing state... (ID: rtbassoc-08b6b36c14642e120)
+aws_autoscaling_group.iac_asg_autoscaling: Refreshing state... (ID: iac_asgautoscaling)
+aws_route_table_association.iac_public_assoc: Destroying... (ID: rtbassoc-08b6b36c14642e120)
+aws_elb.iac-elb: Destroying... (ID: iac-asg-sample)
+aws_nat_gateway.iac_nat_gateway: Destroying... (ID: nat-0e0ca9887795d5f05)
+aws_autoscaling_group.iac_asg_autoscaling: Destroying... (ID: iac_asgautoscaling)
+aws_subnet.iac_private_subnet: Destroying... (ID: subnet-08de89b311bc84770)
+aws_route_table_association.iac_public_assoc: Destruction complete after 1s
+aws_route_table.iac_public_rt: Destroying... (ID: rtb-0af1a3d23b73c5b16)
+aws_subnet.iac_private_subnet: Destruction complete after 1s
+aws_elb.iac-elb: Destruction complete after 2s
+aws_security_group.iac_elb: Destroying... (ID: sg-04a1154457ce8d44c)
+aws_route_table.iac_public_rt: Destruction complete after 2s
+aws_autoscaling_group.iac_asg_autoscaling: Still destroying... (ID: iac_asgautoscaling, 10s elapsed)
+aws_nat_gateway.iac_nat_gateway: Still destroying... (ID: nat-0e0ca9887795d5f05, 10s elapsed)
+aws_security_group.iac_elb: Still destroying... (ID: sg-04a1154457ce8d44c, 10s elapsed)
+aws_nat_gateway.iac_nat_gateway: Still destroying... (ID: nat-0e0ca9887795d5f05, 20s elapsed)
+aws_autoscaling_group.iac_asg_autoscaling: Still destroying... (ID: iac_asgautoscaling, 20s elapsed)
+aws_security_group.iac_elb: Still destroying... (ID: sg-04a1154457ce8d44c, 20s elapsed)
+aws_autoscaling_group.iac_asg_autoscaling: Still destroying... (ID: iac_asgautoscaling, 30s elapsed)
+aws_nat_gateway.iac_nat_gateway: Still destroying... (ID: nat-0e0ca9887795d5f05, 30s elapsed)
+aws_security_group.iac_elb: Still destroying... (ID: sg-04a1154457ce8d44c, 30s elapsed)
+aws_security_group.iac_elb: Destruction complete after 32s
+aws_nat_gateway.iac_nat_gateway: Still destroying... (ID: nat-0e0ca9887795d5f05, 40s elapsed)
+aws_autoscaling_group.iac_asg_autoscaling: Still destroying... (ID: iac_asgautoscaling, 40s elapsed)
+aws_nat_gateway.iac_nat_gateway: Destruction complete after 44s
+aws_eip.ngw_elastic_ip: Destroying... (ID: eipalloc-0d61e1fe841f8a5e4)
+aws_internet_gateway.iac_gw: Destroying... (ID: igw-0e1e103d6ccc4c19f)
+aws_eip.ngw_elastic_ip: Destruction complete after 2s
+aws_autoscaling_group.iac_asg_autoscaling: Still destroying... (ID: iac_asgautoscaling, 50s elapsed)
+aws_internet_gateway.iac_gw: Still destroying... (ID: igw-0e1e103d6ccc4c19f, 10s elapsed)
+aws_internet_gateway.iac_gw: Destruction complete after 12s
+aws_autoscaling_group.iac_asg_autoscaling: Still destroying... (ID: iac_asgautoscaling, 1m0s elapsed)
+aws_autoscaling_group.iac_asg_autoscaling: Still destroying... (ID: iac_asgautoscaling, 1m10s elapsed)
+aws_autoscaling_group.iac_asg_autoscaling: Still destroying... (ID: iac_asgautoscaling, 1m20s elapsed)
+aws_autoscaling_group.iac_asg_autoscaling: Destruction complete after 1m27s
+aws_subnet.iac_public_subnet: Destroying... (ID: subnet-0d046248383d2bc87)
+aws_launch_configuration.iac_asg_launchconfig: Destroying... (ID: iac_asg_launchconfig20190814125131236200000001)
+aws_launch_configuration.iac_asg_launchconfig: Destruction complete after 1s
+aws_security_group.iac_allow_ssh: Destroying... (ID: sg-0e2be91d8a4e9a951)
+aws_key_pair.web-ec2-key: Destroying... (ID: web-key)
+aws_key_pair.web-ec2-key: Destruction complete after 0s
+aws_subnet.iac_public_subnet: Destruction complete after 2s
+aws_security_group.iac_allow_ssh: Destruction complete after 1s
+aws_vpc.iac_vpc: Destroying... (ID: vpc-0e7a1080fc806cd90)
+aws_vpc.iac_vpc: Destruction complete after 1s
+
+Destroy complete! Resources: 14 destroyed.
+
 ```
 
 
