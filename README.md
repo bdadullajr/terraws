@@ -18,8 +18,8 @@ Tools version needed to install.
 	4.) Terraform + AWS Provisioning "How to"
 ```
 
-## Technical guidelines 
-### Steps 1
+## Technical Steps guidelines 
+### Step 1
 ```
 --- Download and Install
 
@@ -40,7 +40,7 @@ Your version of Terraform is out of date! The latest version
 is 0.12.6. You can update by downloading from www.terraform.io/downloads.html
   
 ```
-### Steps 2
+### Step 2
 ```
 --- Clone repository from Github
 
@@ -64,7 +64,7 @@ drwxr-xr-x  3 root root 4096 Aug 14 11:37 .
 [root@jenkins terraws]# 
  
 ```
-### Steps 3
+### Step 3
 ```
 --- AWS Users information
 
@@ -86,6 +86,109 @@ drwxr-xr-x  3 root root 4096 Aug 14 11:37 .
 }
 [root@jenkins terraws]# 
 
+```
+
+### Step 4
+```
+--- Go to "terraws" cloned folder 
+
+[root@jenkins terraws]# ls -lart
+total 44
+drwxr-xr-x 3 root root  4096 Aug 14 01:47 ..
+-rw-r--r-- 1 root root   239 Aug 14 11:26 variables.tf
+-rw-r--r-- 1 root root   358 Aug 14 11:26 output.tf
+-rw-r--r-- 1 root root  5747 Aug 14 11:26 main.tf
+drwxr-xr-x 8 root root  4096 Aug 14 12:35 .git
+-rw-r--r-- 1 root root  2301 Aug 14 12:39 README.md
+drwxr-xr-x 3 root root  4096 Aug 14 12:40 .
+-rw-r--r-- 1 root root 12288 Aug 14 12:41 .README.md.swp
+[root@jenkins terraws]# 
+
+--- Initialized and Export "AWS_ACCESS_KEY_ID" and "export AWS_SECRET_ACCESS_KEY" credentials
+
+[root@jenkins terraws]# terraform init
+
+Initializing provider plugins...
+- Checking for available provider plugins on https://releases.hashicorp.com...
+- Downloading plugin for provider "aws" (2.23.0)...
+
+The following providers do not have any version constraints in configuration,
+so the latest version was installed.
+
+To prevent automatic upgrades to new major versions that may contain breaking
+changes, it is recommended to add version = "..." constraints to the
+corresponding provider blocks in configuration, with the constraint strings
+suggested below.
+
+* provider.aws: version = "~> 2.23"
+
+Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.
+[root@jenkins terraws]# export AWS_ACCESS_KEY_ID="Access-goes-here"
+[root@jenkins terraws]# export AWS_SECRET_ACCESS_KEY="Secret-goes-here"
+
+--- Test by running "Terraform plan" (E.g below is just a sample out of 14 resources)
+
+ + aws_vpc.iac_vpc
+      id:                                          <computed>
+      arn:                                         <computed>
+      assign_generated_ipv6_cidr_block:            "false"
+      cidr_block:                                  "10.0.0.0/16"
+      default_network_acl_id:                      <computed>
+      default_route_table_id:                      <computed>
+      default_security_group_id:                   <computed>
+      dhcp_options_id:                             <computed>
+      enable_classiclink:                          "false"
+      enable_classiclink_dns_support:              <computed>
+      enable_dns_hostnames:                        "true"
+      enable_dns_support:                          "true"
+      instance_tenancy:                            "default"
+      ipv6_association_id:                         <computed>
+      ipv6_cidr_block:                             <computed>
+      main_route_table_id:                         <computed>
+      owner_id:                                    <computed>
+      tags.%:                                      "1"
+      tags.Name:                                   "iac_vpc"
+
+
+Plan: 14 to add, 0 to change, 0 to destroy.
+
+--- Apply by running "terraform apply -auto-approve" to perform the provisioning
+
+aws_nat_gateway.iac_nat_gateway: Still creating... (10s elapsed)
+aws_autoscaling_group.iac_asg_autoscaling: Still creating... (10s elapsed)
+aws_nat_gateway.iac_nat_gateway: Still creating... (20s elapsed)
+aws_autoscaling_group.iac_asg_autoscaling: Still creating... (20s elapsed)
+aws_nat_gateway.iac_nat_gateway: Still creating... (30s elapsed)
+aws_autoscaling_group.iac_asg_autoscaling: Still creating... (30s elapsed)
+aws_nat_gateway.iac_nat_gateway: Still creating... (40s elapsed)
+aws_autoscaling_group.iac_asg_autoscaling: Still creating... (40s elapsed)
+aws_autoscaling_group.iac_asg_autoscaling: Creation complete after 44s (ID: iac_asgautoscaling)
+aws_nat_gateway.iac_nat_gateway: Still creating... (50s elapsed)
+aws_nat_gateway.iac_nat_gateway: Still creating... (1m0s elapsed)
+aws_nat_gateway.iac_nat_gateway: Still creating... (1m10s elapsed)
+aws_nat_gateway.iac_nat_gateway: Still creating... (1m20s elapsed)
+aws_nat_gateway.iac_nat_gateway: Still creating... (1m30s elapsed)
+aws_nat_gateway.iac_nat_gateway: Still creating... (1m40s elapsed)
+aws_nat_gateway.iac_nat_gateway: Creation complete after 1m48s (ID: nat-0e0ca9887795d5f05)
+
+Apply complete! Resources: 14 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+NAT Elastic IP = 54.77.134.243
+Private Subnet ID = subnet-08de89b311bc84770
+Public Subnet ID = subnet-0d046248383d2bc87
+VPC ID = vpc-0e7a1080fc806cd90
+elb_dns_name = iac-asg-sample-1190618414.eu-west-1.elb.amazonaws.com
+[root@jenkins terraws]# 
 ```
 
 
