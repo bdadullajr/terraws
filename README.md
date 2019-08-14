@@ -7,12 +7,14 @@ Tools version needed to install.
 ```
 
 ##Prerequisites
+Below are the high level instruction
+```
 	*Installed terraform version - [Source](https://releases.hashicorp.com/terraform/) - Available version
 	*Git to clone from github
 	*AWS Account with enough privileges to perform provisioning
 		- Access key ID
 		- Secret access key
-
+```
   
 
 
