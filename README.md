@@ -14,6 +14,8 @@ Below are the high level instruction
 		- Access key ID
 		- Secret access key
 ```
-  
 
+## Built With
+
+* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
 
