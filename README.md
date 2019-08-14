@@ -6,7 +6,6 @@ Tools version needed to install.
 - git version 2.14.5 
 ```
 
-##Prerequisites
 Below are the high level instruction
 ```
 	*Installed terraform version - [Source](https://releases.hashicorp.com/terraform/) - Available version
